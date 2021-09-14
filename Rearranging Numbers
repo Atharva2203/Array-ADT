@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+void Rearrange(int arr[],int n)
+{
+   int i=0,j=n-1;
+   int temp;
+   while(i<j)
+   {
+        while(arr[i]<0)
+            i++;
+        while(arr[j]>=0)
+            j--;
+        if(i<j)
+        {
+            temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }    
+   }
+}
+
+void Display(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+
+int main()
+{
+    int arr[]={2,-3,8,-10,16,-20};
+    int n=sizeof(arr)/sizeof(int);
+    Rearrange(arr,n);
+    Display(arr,n);
+    return 0;
+}
