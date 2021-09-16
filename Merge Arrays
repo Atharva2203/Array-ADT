@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+void Merge(int arr1[],int arr2[],int m,int n,int l)
+{
+    int i,j,k;
+    i=j=k=0;
+    int arr3[m+n];
+    while(i<m && j<n)
+    {
+        if(arr1[i]<arr2[j])
+            arr3[k++]=arr1[i++];
+        else
+            arr3[k++]=arr2[j++];
+    }
+    
+    for(;i<m;i++)
+        arr3[k++]=arr1[i];
+    for(;j<n;j++)
+        arr3[k++]=arr2[j];
+        
+    for(int k=0;k<l;k++)    
+    {
+        cout<<arr3[k]<<" ";
+    }
+        
+}
+
+int main()
+{
+    int arr1[]={1,4,6,8,11};
+    int arr2[]={2,5,9,10,12};
+    int m=sizeof(arr1)/sizeof(int);
+    int n=sizeof(arr2)/sizeof(int);
+    int arr3[m+n];
+    int l=sizeof(arr3)/sizeof(int);
+    Merge(arr1,arr2,m,n,l);
+    return 0;
+}
